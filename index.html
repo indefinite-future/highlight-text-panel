@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Two-Panel Layout with Search, Blur, and Unblur</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/mark.js@8.11.1/dist/mark.min.js"></script>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">Search</button>
+        <div class="predefined-keywords">
+            <label for="predefined-list">Predefined Keywords:</label>
+            <input type="text" id="predefined-list" value="lorem ipsum, dolor, elit, consectetur">
+            <button id="update-keywords">Update</button>
+        </div>
+        <button id="blur-button">Blur/Unblur Selected Text</button>
+        <button id="unblur-button">Unblur All Text</button>
+    </div>
+    <div class="panel left-panel">
+        <h2>Left Panel</h2>
+        <div id="left-content">
+            <h3>Review of "Advancements in Quantum Computing: A Comprehensive Survey"</h3>
+            
+            <p>This paper, authored by researchers from the Hong Kong University of Science and Technology (HKUST), provides an extensive overview of recent developments in quantum computing. The authors demonstrate a thorough understanding of the field, presenting a well-structured analysis of current technologies and future prospects.</p>
+            
+            <h4>Strengths:</h4>
+            <ul>
+                <li>Comprehensive coverage of quantum computing paradigms (4.5/5)</li>
+                <li>Clear explanation of complex concepts, accessible to a broad academic audience (4/5)</li>
+                <li>Robust discussion of potential applications in cryptography and optimization (4.5/5)</li>
+            </ul>
+            
+            <h4>Areas for Improvement:</h4>
+            <ul>
+                <li>More detailed analysis of quantum error correction techniques (3.5/5)</li>
+                <li>Further exploration of quantum-classical hybrid algorithms (3/5)</li>
+            </ul>
+            
+            <p>The paper's strongest section is its in-depth review of quantum gate operations, which scored a remarkable 5/5. However, the discussion on quantum hardware implementations could benefit from more recent experimental data (3.5/5).</p>
+            
+            <p>Overall, this work from HKUST researchers contributes significantly to the field, earning a solid 4.2/5 rating. It serves as an excellent resource for both newcomers and experienced professionals in quantum computing.</p>
+            
+            <h4>Final Verdict:</h4>
+            <p>Highly recommended for publication with minor revisions. The Hong Kong University of Science and Technology should be commended for fostering such high-quality research in this cutting-edge field.</p>
+        </div>
+    </div>
+    <div class="panel right-panel">
+        <h2>Right Panel (Editable)</h2>
+        <div id="editable-content" contenteditable="true">
+    
+        </div>
+    </div>
+ 
+    <script src="highlight.js"></script>
+</body>
+</html>
