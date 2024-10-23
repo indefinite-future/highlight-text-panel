@@ -12,6 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var updateKeywordsButton = document.getElementById('update-keywords');
     var blurButton = document.getElementById('blur-button');
     var unblurButton = document.getElementById('unblur-button');
+    var toggleLockButton = document.getElementById('toggle-lock-button');
+    var isLeftPanelLocked = true;
 
     // Predefined list of keywords
     var predefinedKeywords = ['lorem ipsum', 'dolor', 'elit', 'consectetur'];
@@ -134,8 +136,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Listen to editable content changes
     leftContent.addEventListener('input', function() {
-        // Delay the marking to allow the input to complete
-        setTimeout(performMark, 0);
+        if (!isLeftPanelLocked) {
+            // Copy content to right panel
+            rightContent.innerHTML = leftContent.innerHTML;
+            // Delay the marking to allow the input to complete
+            setTimeout(performMark, 0);
+        }
     });
 
     // Listen to predefined keywords update
@@ -146,6 +152,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Listen to unblur button click
     unblurButton.addEventListener('click', unblurAllText);
+
+    // Listen to toggle lock button click
+    toggleLockButton.addEventListener('click', function() {
+        isLeftPanelLocked = !isLeftPanelLocked;
+        leftContent.contentEditable = !isLeftPanelLocked;
+        toggleLockButton.textContent = isLeftPanelLocked ? "Unlock Left Panel" : "Lock Left Panel";
+        
+        // Update styles to indicate editability
+        leftContent.style.backgroundColor = isLeftPanelLocked ? "" : "#f0f0f0";
+        leftContent.style.cursor = isLeftPanelLocked ? "default" : "text";
+    });
 
     // Synchronize scrolling
     var isScrolling = false;
